@@ -1,0 +1,24 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+  <!--
+    This jelly script is used for per-project configuration.
+
+    See global.jelly for a general discussion about jelly script.
+  -->
+    <f:entry title="Server" field="serverName"
+      description="Server name for MongoDB document uploads.">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="Database" field="databaseName"
+      description="Database name for MongoDB document uploads.">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="Collection" field="collectionName"
+      description="Collection name for MongoDB document uploads.">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="Files" field="files"
+      description="Files to upload.">
+      <f:textbox />
+    </f:entry>
+
+</j:jelly>
