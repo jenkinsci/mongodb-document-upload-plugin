@@ -82,11 +82,6 @@ public class UploadPublisher extends Recorder {
 
     @Override
     public boolean perform(AbstractBuild build, Launcher launcher, BuildListener listener) {
-
-        FilePath wsPath		= build.getWorkspace();
-        StringTokenizer strTokens	= new StringTokenizer(getFiles(), filesSeparator);
-        FilePath[]      paths 		= null;
-
         MongoClient client = null;
 
         try {
@@ -99,6 +94,18 @@ public class UploadPublisher extends Recorder {
 
         JsonInsert insert = new JsonInsert(client, getDatabaseName(), getCollectionName());
 
+        InsertDocuments(build, listener, insert);
+
+        client.close();
+
+        return true;
+    }
+
+    private void InsertDocuments(AbstractBuild build, BuildListener listener, JsonInsert insert) {
+        FilePath wsPath	= build.getWorkspace();
+        StringTokenizer strTokens	= new StringTokenizer(getFiles(), filesSeparator);
+        FilePath[]      paths 		= null;
+
         while (strTokens.hasMoreElements()) {
             try {
                 paths = wsPath.list(strTokens.nextToken());
@@ -110,18 +117,21 @@ public class UploadPublisher extends Recorder {
 
             if	(paths.length != 0) {
                 for (FilePath src : paths) {
+                    listener.getLogger().println("Uploading " + src);
+
+                    String jsonDocument = null;
+
                     try {
-                        listener.getLogger().println("Uploading " + src);
-                        insert.Insert(src.readToString());
+                        jsonDocument = src.readToString();
                     } catch (IOException e) {
                         listener.getLogger().println("Failed to read document " + src);
-                        e.printStackTrace();
+                        continue;
                     }
+
+                    insert.Insert(jsonDocument);
                 }
             }
         }
-
-        return true;
     }
 
     // Overridden for better type safety.
