@@ -17,11 +17,11 @@
       <f:textbox />
     </f:entry>
     <f:entry title="Database" field="databaseName"
-      description="Default server name for MongoDB document uploads.">
+      description="Default database name for MongoDB document uploads.">
       <f:textbox />
     </f:entry>
     <f:entry title="Collection" field="collectionName"
-      description="Default server name for MongoDB document uploads.">
+      description="Default collection name for MongoDB document uploads.">
       <f:textbox />
     </f:entry>
   </f:section>
