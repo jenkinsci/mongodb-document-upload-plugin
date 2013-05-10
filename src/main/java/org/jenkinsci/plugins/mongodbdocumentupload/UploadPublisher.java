@@ -1,4 +1,4 @@
-package org.jenkinsci.plugins.mogodbdocumentupload;
+package org.jenkinsci.plugins.mongodbdocumentupload;
 
 import com.mongodb.MongoClient;
 import hudson.Extension;
