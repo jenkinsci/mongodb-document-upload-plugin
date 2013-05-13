@@ -9,4 +9,4 @@ Features:
 * Globally configure a mongoDb connection.
 * Optionally, configure a mongoDb connection per post-build setp.
 
-See also: https://wiki.jenkins-ci.org/display/JENKINS/MongoDb+Document+Upload
+See also: https://wiki.jenkins-ci.org/display/JENKINS/MongoDB+Document+Upload+Plugin
