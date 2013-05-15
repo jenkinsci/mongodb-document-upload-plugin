@@ -13,8 +13,8 @@
   <url>https://wiki.jenkins-ci.org/display/JENKINS/MongoDB+Document+Upload+Plugin</url>
 
   <scm>
-    <connection>scm:git:ssh://github.com/jenkinsci/mongodb-document-upload-plugin.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/jenkinsci/mongodb-document-upload-plugin.git</developerConnection>
+    <connection>scm:git:ssh://github.com:jenkinsci/mongodb-document-upload-plugin.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com:jenkinsci/mongodb-document-upload-plugin.git</developerConnection>
     <url>https://github.com/jenkinsci/mongodb-document-upload-plugin</url>
   </scm>
 
