@@ -29,6 +29,13 @@ public class JsonInsert {
         Object o = com.mongodb.util.JSON.parse(jsonDocument);
         DBObject dbObj = (DBObject) o;
 
-        collection.insert(dbObj);
+        DBObject query = new BasicDBObject("_id", dbObj.get("_id"));
+        DBObject cursor =  collection.findAndModify(query,dbObj);
+                
+        if (cursor == null){
+            collection.insert(dbObj);
+        } else {
+            collection.update(query,dbObj);
+        }
     }
 }
